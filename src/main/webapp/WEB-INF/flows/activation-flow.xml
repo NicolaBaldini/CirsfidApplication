@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	<var name="claim" class="com.cirsf.model.Claim" />
+	<var name="cause" class="com.cirsf.model.Cause" />
+	<var name="person" class="com.cirsf.model.Person" />
+	<var name="contract" class="com.cirsf.model.Contract" />
+	<var name="result" class="com.cirsf.model.PrologResult" />
+	
+	
+	
+   
+    <view-state id="addClaim" model="cause">
+    	<transition on="confirm" to="addClaimParameter"/>
+    </view-state>
+    
+    <action-state id="addClaimParameter">
+    <evaluate expression="sampleAction"/>
+      <transition on="success" to="homePagePerson"/>
+     </action-state>
+    
+
+    <view-state id="homePagePerson" model="cause" >
+    	<transition on="add" to="addPerson"/>
+    	<transition on="finish" to="checkContract"/>
+    </view-state>
+	
+	<view-state id="addPerson" model="cause">
+		<transition on="confirm" to="addPersonToList"/>
+	</view-state>
+	
+	<action-state id="addPersonToList">
+    <evaluate expression="sampleAction"/>
+      <transition on="success" to="homePagePerson"/>
+     </action-state>
+     
+     <action-state id="checkContract">
+    <evaluate expression="sampleAction"/>
+      <transition on="yes" to="addContract"/>
+      <transition on="no" to="evaluateResult"/>
+     </action-state>
+	
+	<view-state id="addContract" model="cause">
+		<transition on="confirm" to="addContractParameter"/>
+		<transition on="back" to="homePagePerson"/>
+	</view-state>
+	
+	<action-state id="addContractParameter">
+    <evaluate expression="sampleAction"/>
+      <transition on="success" to="evaluateResult"/>
+     </action-state>
+     
+	
+	<action-state id="evaluateResult">
+    <evaluate expression="prologAction"/>
+      <transition on="success" to="resultProlog"/>
+     </action-state>
+     
+     <view-state id="resultProlog" model="cause"/>
+	
+</flow>

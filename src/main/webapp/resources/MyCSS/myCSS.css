@@ -1,0 +1,54 @@
+
+
+.lateraleSx{
+	
+	padding-top:5%;
+	padding-bottom:5%;
+	
+	
+}
+
+.lateraleSx:hover{
+	
+	background-color:#feffff;
+}
+
+.iconSx{
+	margin-left:40%;
+}
+
+.textIcon{
+	margin-left:18%;
+	margin-bottom:-25%
+}
+
+.centralDiv{
+	
+	margin-top:5%;
+	width:100%;
+	height:100%;
+	text-align:justify;
+	
+	
+}
+
+.titoli{
+	text-align:center;
+	margin-bottom:5%;
+}
+
+body{
+	background-color:whitesmoke;
+}
+
+.selector{
+	
+	padding:5%;
+	width:300%;
+}
+
+.labelsForm{
+	padding:3%;
+	test-align:center;
+}
+
